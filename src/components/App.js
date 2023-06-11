@@ -1,15 +1,12 @@
 import 'css/App.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Book from './book/Book';
 import BookShelf from './book/BookShelf';
+import CategoriesContext from './CategoriesContext';
 
 const App = () => {
 	const [showSearchPage, setShowSearchpage] = useState(false);
-	const categories = [
-		{ id: 1, name: 'Currently Reading' },
-		{ id: 2, name: 'Want to Read' },
-		{ id: 3, name: 'Read' },
-	];
+	const categories = useContext(CategoriesContext);
 	const books = [
 		{
 			id: 1,
@@ -129,9 +126,13 @@ const App = () => {
 					<div className='list-books-title'>
 						<h1>MyReads</h1>
 					</div>
-					<div className='list-books-content'>
-						<div>{categories?.map((category) => renderCategory(category))}</div>
-					</div>
+					<CategoriesContext.Provider value={categories}>
+						<div className='list-books-content'>
+							<div>
+								{categories?.map((category) => renderCategory(category))}
+							</div>
+						</div>
+					</CategoriesContext.Provider>
 					<div className='open-search'>
 						<a onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</a>
 					</div>
