@@ -1,6 +1,7 @@
 import 'css/App.css';
 import { useState } from 'react';
 import Book from './book/Book';
+import BookShelf from './book/BookShelf';
 
 const App = () => {
 	const [showSearchPage, setShowSearchpage] = useState(false);
@@ -75,12 +76,11 @@ const App = () => {
 	 */
 	const renderCategory = (category) => {
 		return (
-			<div className='bookshelf'>
-				<h2 className='bookshelf-title'>{category?.name}</h2>
-				<div className='bookshelf-books'>
-					<ol className='books-grid'>{renderBooks(category?.id)}</ol>
-				</div>
-			</div>
+			<BookShelf
+				key={category?.id}
+				name={category?.name}>
+				{renderBooks(category?.id)}
+			</BookShelf>
 		);
 	};
 
