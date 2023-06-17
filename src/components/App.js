@@ -41,6 +41,7 @@ const App = () => {
 						.map((book) => (
 							<li key={book.id}>
 								<Book
+									showSearchPage={showSearchPage}
 									id={book.id}
 									shelf={book.shelf}
 									cover={book?.imageLinks?.thumbnail}
@@ -53,12 +54,20 @@ const App = () => {
 						))
 				: null;
 		} else {
-			return searchKeyWord
-				? books?.map((book) => (
+			if (searchKeyWord) {
+				const tempBooks = JSON.parse(localStorage.getItem("books"));
+
+				return books?.map((book) => {
+					const currentBook = tempBooks?.find(
+						(tempBook) => tempBook.id === book.id,
+					);
+
+					return (
 						<li key={book.id}>
 							<Book
+								showSearchPage={showSearchPage}
 								id={book.id}
-								shelf={book?.shelf || NONE_SHELF}
+								shelf={book?.shelf || currentBook?.shelf || NONE_SHELF}
 								cover={book?.imageLinks?.thumbnail}
 								title={book.title}
 								subtitle={book?.subtitle}
@@ -66,8 +75,11 @@ const App = () => {
 								setBooks={setBooks}
 							/>
 						</li>
-				  ))
-				: null;
+					);
+				});
+			}
+
+			return null;
 		}
 	};
 

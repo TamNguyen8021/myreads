@@ -13,7 +13,10 @@ const Book = (props) => {
 	useEffect(() => {
 		if (shelf !== props.shelf) {
 			getBooks().then((booksData) => {
-				props.setBooks(booksData);
+				if (!props.showSearchPage) {
+					props.setBooks(booksData);
+				}
+
 				localStorage.setItem("books", JSON.stringify(booksData));
 			});
 		}
