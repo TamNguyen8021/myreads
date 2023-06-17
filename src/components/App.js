@@ -11,7 +11,6 @@ import { NONE_SHELF } from "constants/constants";
 const App = () => {
 	const shelves = useContext(ShelvesContext);
 	const [showSearchPage, setShowSearchpage] = useState(false);
-
 	const [books, setBooks] = useState([]);
 	const [searchKeyWord, setSearchKeyWord] = useState("");
 
