@@ -34,9 +34,9 @@ const Book = (props) => {
 			{props?.title && <div className="book-title">{props.title}</div>}
 			{props?.subtitle && <div className="book-subtitle">{props.subtitle}</div>}
 			{props?.authors &&
-				props.authors.map((author, index) => (
+				props.authors.map((author) => (
 					<div
-						key={index + Math.random() * 100}
+						key={props?.id + "-" + author}
 						className="book-authors">
 						{author}
 					</div>
