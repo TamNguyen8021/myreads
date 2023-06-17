@@ -1,6 +1,6 @@
 import "css/HoverButton.css";
 import { useContext, useState } from "react";
-import CategoriesContext from "./CategoriesContext";
+import CategoriesContext from "../context/CategoriesContext";
 
 /**
  * @description Represents a hover button to change book's category or add new book
