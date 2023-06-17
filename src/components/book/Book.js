@@ -11,7 +11,9 @@ const Book = (props) => {
 	const [shelf, setShelf] = useState(props?.shelf);
 
 	useEffect(() => {
-		getBooks().then((booksData) => props.setBooks(booksData));
+		if (shelf !== props?.shelf) {
+			getBooks().then((booksData) => props.setBooks(booksData));
+		}
 	}, [shelf]);
 
 	/**
