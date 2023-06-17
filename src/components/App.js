@@ -23,6 +23,9 @@ const App = () => {
 		}
 	}, []);
 
+	/**
+	 * @description Displays search page or main page
+	 */
 	const handleShowSearchPage = () => setShowSearchpage(!showSearchPage);
 
 	/**
