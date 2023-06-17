@@ -18,3 +18,7 @@
 	opacity: 0;
 	cursor: pointer;
 }
+
+.book-shelf-changer:hover {
+	cursor: pointer;
+}

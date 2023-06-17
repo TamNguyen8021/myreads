@@ -19,7 +19,7 @@ export const getBooks = () =>
 		.then((res) => res.json())
 		.then((data) => data.books);
 
-export const update = (book, shelf) =>
+export const editBook = (book, shelf) =>
 	fetch(`${api}/books/${book.id}`, {
 		method: "PUT",
 		headers: {

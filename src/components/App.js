@@ -13,6 +13,7 @@ const App = () => {
 	useEffect(() => {
 		getBooks().then((booksData) => setBooks(booksData));
 	}, []);
+
 	/**
 	 * @description Renders category and books belongs to that category
 	 * @param {object} category
@@ -39,10 +40,13 @@ const App = () => {
 			?.map((book) => (
 				<li key={book?.id}>
 					<Book
+						id={book?.id}
+						shelf={book?.shelf}
 						cover={book?.imageLinks?.thumbnail}
 						title={book?.title}
 						subtitle={book?.subtitle}
 						authors={book?.authors}
+						setBooks={setBooks}
 					/>
 				</li>
 			));
@@ -77,7 +81,9 @@ const App = () => {
 					<CategoriesContext.Provider value={categories}>
 						<div className="list-books-content">
 							<div>
-								{categories?.map((category) => renderCategory(category))}
+								{categories
+									?.filter((category) => category?.id !== "none")
+									?.map((category) => renderCategory(category))}
 							</div>
 						</div>
 					</CategoriesContext.Provider>
