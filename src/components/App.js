@@ -1,8 +1,8 @@
-import 'css/App.css';
-import { useContext, useState } from 'react';
-import Book from './book/Book';
-import BookShelf from './book/BookShelf';
-import CategoriesContext from './CategoriesContext';
+import "css/App.css";
+import { useContext, useEffect, useState } from "react";
+import Book from "./book/Book";
+import BookShelf from "./book/BookShelf";
+import CategoriesContext from "./CategoriesContext";
 import { getBooks } from "BooksAPI";
 
 const App = () => {
@@ -49,39 +49,39 @@ const App = () => {
 	};
 
 	return (
-		<div className='app'>
+		<div className="app">
 			{showSearchPage ? (
-				<div className='search-books'>
-					<div className='search-books-bar'>
+				<div className="search-books">
+					<div className="search-books-bar">
 						<a
-							className='close-search'
+							className="close-search"
 							onClick={() => setShowSearchpage(!showSearchPage)}>
 							Close
 						</a>
-						<div className='search-books-input-wrapper'>
+						<div className="search-books-input-wrapper">
 							<input
-								type='text'
-								placeholder='Search by title, author, or ISBN'
+								type="text"
+								placeholder="Search by title, author, or ISBN"
 							/>
 						</div>
 					</div>
-					<div className='search-books-results'>
-						<ol className='books-grid'></ol>
+					<div className="search-books-results">
+						<ol className="books-grid"></ol>
 					</div>
 				</div>
 			) : (
-				<div className='list-books'>
-					<div className='list-books-title'>
+				<div className="list-books">
+					<div className="list-books-title">
 						<h1>MyReads</h1>
 					</div>
 					<CategoriesContext.Provider value={categories}>
-						<div className='list-books-content'>
+						<div className="list-books-content">
 							<div>
 								{categories?.map((category) => renderCategory(category))}
 							</div>
 						</div>
 					</CategoriesContext.Provider>
-					<div className='open-search'>
+					<div className="open-search">
 						<a onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</a>
 					</div>
 				</div>
