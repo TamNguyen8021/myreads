@@ -63,9 +63,7 @@ const HomePage = (props) => {
 				</div>
 			</CategoriesContext.Provider>
 			<div className="open-search">
-				<a onClick={() => props.setShowSearchpage(!props.showSearchPage)}>
-					Add a book
-				</a>
+				<a onClick={() => props.handleShowSearchPage()}>Add a book</a>
 			</div>
 		</div>
 	);
