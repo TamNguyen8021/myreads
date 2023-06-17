@@ -11,8 +11,11 @@ const Book = (props) => {
 	const [shelf, setShelf] = useState(props?.shelf);
 
 	useEffect(() => {
-		if (shelf !== props?.shelf) {
-			getBooks().then((booksData) => props.setBooks(booksData));
+		if (shelf !== props.shelf) {
+			getBooks().then((booksData) => {
+				props.setBooks(booksData);
+				localStorage.setItem("books", JSON.stringify(booksData));
+			});
 		}
 	}, [shelf]);
 
@@ -35,14 +38,15 @@ const Book = (props) => {
 			</div>
 			{props?.title && <div className="book-title">{props.title}</div>}
 			{props?.subtitle && <div className="book-subtitle">{props.subtitle}</div>}
-			{props?.authors &&
-				props.authors.map((author) => (
-					<div
-						key={props?.id + "-" + author}
-						className="book-authors">
-						{author}
-					</div>
-				))}
+			{props.authors?.length
+				? props.authors.map((author) => (
+						<div
+							key={props.id + "-" + author}
+							className="book-authors">
+							{author}
+						</div>
+				  ))
+				: null}
 		</div>
 	);
 };

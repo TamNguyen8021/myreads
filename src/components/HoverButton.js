@@ -1,13 +1,23 @@
+import { NONE_SHELF } from "constants/constants";
+import ShelvesContext from "context/ShelvesContext";
 import "css/HoverButton.css";
 import { useContext, useState } from "react";
-import CategoriesContext from "../context/CategoriesContext";
 
 /**
  * @description Represents a hover button to change book's category or add new book
  */
 const HoverButton = (props) => {
-	const categories = useContext(CategoriesContext);
+	const shelves = useContext(ShelvesContext);
 	const [isClicked, setIsClicked] = useState(false);
+	const bookShelf = props.shelf;
+
+	const handleRenderShelves = () => {
+		if (bookShelf === NONE_SHELF) {
+			return shelves.filter((shelf) => shelf.id !== NONE_SHELF);
+		}
+
+		return shelves;
+	};
 
 	/**
 	 * @description Handles change event on select
@@ -27,18 +37,14 @@ const HoverButton = (props) => {
 			onClick={handleClickShelfButton}>
 			{
 				<select
-					defaultValue={props?.shelf}
+					defaultValue={bookShelf}
 					onChange={handleChangeBookShelf}>
-					<option
-						value="none"
-						disabled>
-						Move to...
-					</option>
-					{categories?.map((category) => (
+					<option disabled>Move to...</option>
+					{handleRenderShelves().map((shelf) => (
 						<option
-							key={category?.id}
-							value={category?.id}>
-							{category?.name}
+							key={shelf.id}
+							value={shelf.id}>
+							{shelf.name}
 						</option>
 					))}
 				</select>
