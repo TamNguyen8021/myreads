@@ -9,11 +9,6 @@ const headers = {
 	Authorization: token,
 };
 
-export const get = (bookId) =>
-	fetch(`${api}/books/${bookId}`, { headers })
-		.then((res) => res.json())
-		.then((data) => data.book);
-
 export const getBooks = () =>
 	fetch(`${api}/books`, { headers })
 		.then((res) => res.json())
