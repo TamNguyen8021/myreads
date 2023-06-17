@@ -3,12 +3,17 @@
 }
 
 .book-title,
+.book-subtitle,
 .book-authors {
 	font-size: 0.8em;
 }
 
 .book-title {
 	margin-top: 10px;
+}
+
+.book-subtitle {
+	font-style: italic;
 }
 
 .book-authors {

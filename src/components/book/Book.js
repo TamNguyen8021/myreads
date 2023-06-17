@@ -13,7 +13,15 @@ const Book = (props) => {
 				<HoverButton />
 			</div>
 			{props?.title && <div className='book-title'>{props.title}</div>}
-			{props?.author && <div className='book-authors'>{props.author}</div>}
+			{props?.subtitle && <div className='book-subtitle'>{props.subtitle}</div>}
+			{props?.authors &&
+				props.authors.map((author, index) => (
+					<div
+						key={index + Math.random() * 100}
+						className='book-authors'>
+						{author}
+					</div>
+				))}
 		</div>
 	);
 };
