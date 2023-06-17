@@ -24,7 +24,7 @@ const HoverButton = (props) => {
 	 * @param {object} event
 	 */
 	const handleChangeBookShelf = (event) => {
-		props?.changeBookShelf(event?.target?.value);
+		props.changeBookShelf(event.target.value);
 	};
 
 	const handleClickShelfButton = () => {

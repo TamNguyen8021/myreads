@@ -8,7 +8,7 @@ import { editBook, getBooks } from "BooksAPI";
  * @description Represents a book
  */
 const Book = (props) => {
-	const [shelf, setShelf] = useState(props?.shelf);
+	const [shelf, setShelf] = useState(props.shelf);
 
 	useEffect(() => {
 		if (shelf !== props.shelf) {
@@ -24,20 +24,20 @@ const Book = (props) => {
 	 * @param {string} shelf
 	 */
 	const changeBookShelf = (shelf) => {
-		editBook({ id: props?.id }, shelf).then(() => setShelf(shelf));
+		editBook({ id: props.id }, shelf).then(() => setShelf(shelf));
 	};
 
 	return (
 		<div className="book">
 			<div className="book-top">
-				{props?.cover && <BookCover cover={props.cover} />}
+				{props.cover && <BookCover cover={props.cover} />}
 				<HoverButton
 					shelf={shelf}
 					changeBookShelf={changeBookShelf}
 				/>
 			</div>
-			{props?.title && <div className="book-title">{props.title}</div>}
-			{props?.subtitle && <div className="book-subtitle">{props.subtitle}</div>}
+			<div className="book-title">{props.title}</div>
+			{props.subtitle && <div className="book-subtitle">{props.subtitle}</div>}
 			{props.authors?.length
 				? props.authors.map((author) => (
 						<div
