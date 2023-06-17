@@ -1,4 +1,5 @@
 import "css/HomePage.css";
+import { Link } from "react-router-dom";
 
 /**
  * @description Represents the main page of the application
@@ -13,7 +14,12 @@ const HomePage = (props) => {
 				<div>{props.renderShelves()}</div>
 			</div>
 			<div className="open-search">
-				<a onClick={() => props.handleShowSearchPage()}>Add a book</a>
+				<Link
+					className="link"
+					to={"search"}
+					onClick={() => props.handleShowSearchPage()}>
+					Add a book
+				</Link>
 			</div>
 		</div>
 	);

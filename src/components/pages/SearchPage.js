@@ -1,6 +1,7 @@
 import { searchBooks } from "BooksAPI";
 import "css/SearchPage.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 /**
  * @description Represents the search page of the application
@@ -42,11 +43,12 @@ const SearchPage = (props) => {
 	return (
 		<div className="search-books">
 			<div className="search-books-bar">
-				<a
+				<Link
 					className="close-search"
+					to={""}
 					onClick={handleClickBack}>
-					Close
-				</a>
+					Back
+				</Link>
 				<div className="search-books-input-wrapper">
 					<input
 						type="text"
