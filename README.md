@@ -87,4 +87,5 @@ You can navigate to the main page from the search page and all changes you made 
 
 ## License
 
-This is a Udacity project. Please **DO NOT COPY OR DISTRIBUTE** it under any circumstances.
+- HTML, CSS and API methods are from [Udacity starter template](https://github.com/udacity/nd0191-c1-myreads/).
+- This is a Udacity project. Please **DO NOT COPY OR DISTRIBUTE** it under any circumstances.
