@@ -1,11 +1,11 @@
 import ShelvesContext from "context/ShelvesContext";
-import "css/HoverButton.css";
+import "css/ChangeShelfButton.css";
 import { useContext, useState } from "react";
 
 /**
  * @description Represents a hover button to change book's category or add new book
  */
-const HoverButton = (props) => {
+const ChangeShelfButton = (props) => {
 	const shelves = useContext(ShelvesContext);
 	const [isClicked, setIsClicked] = useState(false);
 
@@ -43,4 +43,4 @@ const HoverButton = (props) => {
 	);
 };
 
-export default HoverButton;
+export default ChangeShelfButton;

@@ -1,6 +1,6 @@
 import "css/Book.css";
 import BookCover from "./BookCover";
-import HoverButton from "components/HoverButton";
+import ChangeShelfButton from "components/ChangeShelfButton";
 import { useEffect, useState } from "react";
 import { editBook, getBooks } from "BooksAPI";
 
@@ -34,7 +34,7 @@ const Book = (props) => {
 		<div className="book">
 			<div className="book-top">
 				{props.cover && <BookCover cover={props.cover} />}
-				<HoverButton
+				<ChangeShelfButton
 					shelf={shelf}
 					changeBookShelf={changeBookShelf}
 				/>
