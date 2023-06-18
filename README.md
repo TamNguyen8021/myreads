@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# MyReads
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A bookshelf app that allows you to select and categorize books you have read, are currently reading, or want to read.
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Use the package manager [npm](https://www.npmjs.com) to install node_modules. This app builds with Node 14 so please install with Node 14 to avoid errors.
 
-### `npm start`
+```bash
+npm install
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Usage
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Run this command to run the app locally.
 
-### `npm test`
+```bash
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+There are three shelves:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Currently Reading
+- Want to Read
+- Read
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Each book has a button which allows you to move to the book to your desired shelf. You can also click the plus button on the bottom right corner of the main page to move to search page. (See image below).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Alt text](image.png)
 
-### `npm run eject`
+The search page has a text field for you to find books which have titles matched with the keyword. You can also move books to your desired shelves. (See image below).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Alt text](image-1.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can navigate to the main page from the search page and all changes you made on the search page will be reflected on the main page without refreshing.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+├── README.md # This file.
+├── package.json # npm package manager file. No need modify this file.
+├── package-lock.json # A file created by npm after running `npm install`.
+├── jsconfig.json # Specifies the root files.
+├── image.png # An example of the app features used in README.md file.
+├── image-1.png # An example of the app features used in README.md file.
+├── .gitignore # Specifies which files to exclude from commit.
+├── public
+│   ├── favicon.ico # The logo of the tab on web browser. You may change if you wish.
+│   ├── index.html # The mounting point for React app. DO NOT MODIFY.
+│   ├── logo192.png # The logo of the app.
+│   ├── logo512.png # The logo of the app.
+│   ├── manifest.json # The web app manifest which provides information about the application.
+│   └── robots.txt # Prevents search engines and bots to crawl up the sites.
+├── src
+│   └── components
+│       └── book
+│           ├── Book.js # Component for book.
+│           ├── BookCover.js # Component for book's cover.
+│           └── BookShelf.js # Component for shelf.
+│       └── pages
+│           ├── HomePage.js # Component for home page.
+│           └── SearchPage.js # Component for search page.
+│       ├── App.js # The root of the app which contains home page and search page.
+│       └── ChangeShelfButton.js # Component for the button used to change book's shelf.
+│   └── constants
+│       └── constants.js # Constants used in app.
+│   └── context
+│       └── ShelvesContext.js # Context used for shelves.
+│   └── css
+│       ├── App.css # Style for the app.
+│       ├── Book.css # Style for the book.
+│       ├── BookCover.css # Style for the book's cover.
+│       ├── BookShelf.css # Style for the shelf.
+│       ├── ChangeShelfButton.css # Style for the button to change book's shelf.
+│       ├── HomePage.css # Style for the main page.
+│       ├── index.css # Global style. No need to modify this file.
+│       └── SearchPage.css # Style for the search page.
+│   └── icons
+│       ├── add.svg # Plus icon.
+│       ├── arrow-back.svg # Back icon.
+└───    └── arrow-drop-down.svg # Icon for change book's shelf button.
+    ├── BooksAPI.js # Provides methods to call Udacity API. No need to modify this file.
+    └── index.js # Used for DOM rendering. No need to modify this file.
+```
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This is a Udacity project. Please **DO NOT COPY OR DISTRIBUTE** it under any circumstances.
