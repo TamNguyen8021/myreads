@@ -45,7 +45,7 @@ const SearchPage = (props) => {
 			<div className="search-books-bar">
 				<Link
 					className="close-search"
-					to={""}
+					to={"/"}
 					onClick={handleClickBack}>
 					Back
 				</Link>

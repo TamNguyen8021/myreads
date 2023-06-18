@@ -7,6 +7,7 @@ import Book from "./book/Book";
 import BookShelf from "./book/BookShelf";
 import ShelvesContext from "context/ShelvesContext";
 import { NONE_SHELF } from "constants/constants";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
 	const shelves = useContext(ShelvesContext);
@@ -111,21 +112,31 @@ const App = () => {
 	return (
 		<div className="app">
 			<ShelvesContext.Provider value={shelves}>
-				{showSearchPage ? (
-					<SearchPage
-						books={books}
-						setBooks={setBooks}
-						searchKeyWord={searchKeyWord}
-						setSearchKeyWord={setSearchKeyWord}
-						handleShowSearchPage={handleShowSearchPage}
-						renderBooks={renderBooks}
+				<Routes>
+					<Route
+						exact
+						path="/"
+						element={
+							<HomePage
+								handleShowSearchPage={handleShowSearchPage}
+								renderShelves={renderShelves}
+							/>
+						}
 					/>
-				) : (
-					<HomePage
-						handleShowSearchPage={handleShowSearchPage}
-						renderShelves={renderShelves}
+					<Route
+						path="/search"
+						element={
+							<SearchPage
+								books={books}
+								setBooks={setBooks}
+								searchKeyWord={searchKeyWord}
+								setSearchKeyWord={setSearchKeyWord}
+								handleShowSearchPage={handleShowSearchPage}
+								renderBooks={renderBooks}
+							/>
+						}
 					/>
-				)}
+				</Routes>
 			</ShelvesContext.Provider>
 		</div>
 	);
